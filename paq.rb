@@ -10,7 +10,7 @@ class Paq < Formula
   on_macos do
     if Hardware::CPU.intel?
       url "https://github.com/cluion/paq/releases/download/v1.1.0/paq_1.1.0_darwin_amd64.tar.gz"
-      sha256 "cdf8c609d658e6b663d64dfb2f99fd28843d36a3023d129daef597665f5896a4"
+      sha256 "72d14b66b0b87be9cc0720d837ae72471428d528d1c29d626cfc7b70f33ffc14"
 
       define_method(:install) do
         bin.install "paq"
@@ -18,7 +18,7 @@ class Paq < Formula
     end
     if Hardware::CPU.arm?
       url "https://github.com/cluion/paq/releases/download/v1.1.0/paq_1.1.0_darwin_arm64.tar.gz"
-      sha256 "3cf1d803996982a7592eab941852623ab73f787be2163b64eba0719cb527bf14"
+      sha256 "5b5331c354513de272063c3058ebe5b267618e5e4cdeecb29c6ba0d2728a4d94"
 
       define_method(:install) do
         bin.install "paq"
@@ -29,14 +29,14 @@ class Paq < Formula
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
       url "https://github.com/cluion/paq/releases/download/v1.1.0/paq_1.1.0_linux_amd64.tar.gz"
-      sha256 "9c6dbfd743b0561f8e10e8b3a12b813020fa75e89d75f6cbc741a663499314d3"
+      sha256 "d1ca42b00636fd596fb20c814e370d0f951b5a3a194d203b4702606ffe36c2d0"
       define_method(:install) do
         bin.install "paq"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
       url "https://github.com/cluion/paq/releases/download/v1.1.0/paq_1.1.0_linux_arm64.tar.gz"
-      sha256 "7b8966b74caba476735844eec260ecf12b65fb4ed0e155aae663966c41ca58a9"
+      sha256 "960a05ba8842861e7680d4546cd648b813fb628f45adcab5a43d13b321726afa"
       define_method(:install) do
         bin.install "paq"
       end
