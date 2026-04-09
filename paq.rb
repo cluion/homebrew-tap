@@ -5,20 +5,20 @@
 class Paq < Formula
   desc "Unified CLI for querying installed packages across package managers"
   homepage "https://github.com/cluion/paq"
-  version "1.3.0"
+  version "1.4.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/cluion/paq/releases/download/v1.3.0/paq_1.3.0_darwin_amd64.tar.gz"
-      sha256 "69599e593f99e23d65becf202a494cd7c6d2367cec13ad39453475868a858741"
+      url "https://github.com/cluion/paq/releases/download/v1.4.0/paq_1.4.0_darwin_amd64.tar.gz"
+      sha256 "1584cca28ac10fc8a67479324e7e580cbd74f6044776519a164c197c21b7d9e3"
 
       define_method(:install) do
         bin.install "paq"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/cluion/paq/releases/download/v1.3.0/paq_1.3.0_darwin_arm64.tar.gz"
-      sha256 "eda475f2188151a788ce24a4a9b1fd4afebcbe12336a0dbc5194e200491cee2c"
+      url "https://github.com/cluion/paq/releases/download/v1.4.0/paq_1.4.0_darwin_arm64.tar.gz"
+      sha256 "62c1a085cd1cb7315e23a257e53cec295dd03006299e8e262e414a7a5e2d82be"
 
       define_method(:install) do
         bin.install "paq"
@@ -28,15 +28,15 @@ class Paq < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/cluion/paq/releases/download/v1.3.0/paq_1.3.0_linux_amd64.tar.gz"
-      sha256 "5e10627a2e8c9ac1b528f25f52803d1c95992b35df0ff0b994ba8911da5afe68"
+      url "https://github.com/cluion/paq/releases/download/v1.4.0/paq_1.4.0_linux_amd64.tar.gz"
+      sha256 "bceb502e231ccd73e63c81ea41d5943864ab2308ce47ba287ed64186d566d319"
       define_method(:install) do
         bin.install "paq"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/cluion/paq/releases/download/v1.3.0/paq_1.3.0_linux_arm64.tar.gz"
-      sha256 "f7627e1d1a03dec72343dd337c559c70bd80c907865535b3f1a419fd1b930841"
+      url "https://github.com/cluion/paq/releases/download/v1.4.0/paq_1.4.0_linux_arm64.tar.gz"
+      sha256 "049ed41362d760e414f4d13d4c453e63dbc2495c0738192ca069230809df82e3"
       define_method(:install) do
         bin.install "paq"
       end
