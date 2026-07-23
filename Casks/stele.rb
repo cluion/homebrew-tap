@@ -1,9 +1,9 @@
 cask "stele" do
   arch arm: "arm64", intel: "x64"
 
-  version "0.14.0"
-  sha256 arm:   "e777d92afeff3754fad60019ac4ba91d3cb95e171f0152a4770844f508496711",
-         intel: "30b0ac26a7e4e2f59e98a42c6bc494e718a6431b6f84a6489a492421a8add294"
+  version "0.15.0"
+  sha256 arm:   "16ab0c69fe8d41462f403c09a14aec402916ead7e2c2d680d77babad66fc44ff",
+         intel: "7f28100cd87f8fac2b7332d0e91787e7c3340f24327e928b8641c35150cddf21"
 
   url "https://github.com/cluion/stele/releases/download/v#{version}/Stele-#{version}-#{arch}.dmg",
       verified: "github.com/cluion/stele/"
