@@ -38,7 +38,7 @@ gh api \
   "repos/${repository}/releases/assets/${archive_id}" \
   >"${temporary_directory}/${archive}"
 
-expected_sha256="$(awk -v archive="${archive}" '$2 == archive { print $1 }' "${temporary_directory}/SHA256SUMS")"
+expected_sha256="$(awk -v archive="${archive}" '$2 == archive || $2 == "./" archive { print $1 }' "${temporary_directory}/SHA256SUMS")"
 actual_sha256="$(sha256sum "${temporary_directory}/${archive}" | awk '{ print $1 }')"
 
 if [[ ! "${expected_sha256}" =~ ^[0-9a-f]{64}$ ]]
