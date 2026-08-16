@@ -5,8 +5,6 @@
 class ZhFinder < Formula
   desc "CLI tool to find Chinese characters (Traditional/Simplified) in files"
   homepage "https://github.com/cluion/zh-finder"
-  version "1.0.0"
-
   on_macos do
     if Hardware::CPU.intel?
       url "https://github.com/cluion/zh-finder/releases/download/v1.0.0/zh-finder_1.0.0_darwin_amd64.tar.gz"

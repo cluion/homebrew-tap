@@ -5,8 +5,6 @@
 class Paq < Formula
   desc "Unified CLI for querying installed packages across package managers"
   homepage "https://github.com/cluion/paq"
-  version "1.4.0"
-
   on_macos do
     if Hardware::CPU.intel?
       url "https://github.com/cluion/paq/releases/download/v1.4.0/paq_1.4.0_darwin_amd64.tar.gz"
