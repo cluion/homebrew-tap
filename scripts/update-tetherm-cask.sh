@@ -8,7 +8,8 @@ readonly output="Casks/tetherm.rb"
 releases_json="$(gh api "repos/${repository}/releases?per_page=20")"
 release_json="$(jq -cr '[.[] | select(.draft == false and .prerelease == false)][0] // empty' <<<"${releases_json}")"
 
-if [[ -z "${release_json}" ]]; then
+if [[ -z "${release_json}" ]]
+then
   echo "No published Tetherm release; leaving the Cask unchanged."
   exit 0
 fi
@@ -16,7 +17,8 @@ fi
 tag="$(jq -er '.tag_name' <<<"${release_json}")"
 version="${tag#v}"
 
-if [[ "${tag}" != "v${version}" || ! "${version}" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+if [[ "${tag}" != "v${version}" || ! "${version}" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]
+then
   echo "Unsupported Tetherm release tag: ${tag}" >&2
   exit 1
 fi
@@ -39,12 +41,14 @@ gh api \
 expected_sha256="$(awk -v archive="${archive}" '$2 == archive { print $1 }' "${temporary_directory}/SHA256SUMS")"
 actual_sha256="$(sha256sum "${temporary_directory}/${archive}" | awk '{ print $1 }')"
 
-if [[ ! "${expected_sha256}" =~ ^[0-9a-f]{64}$ ]]; then
+if [[ ! "${expected_sha256}" =~ ^[0-9a-f]{64}$ ]]
+then
   echo "SHA256SUMS does not contain a valid checksum for ${archive}." >&2
   exit 1
 fi
 
-if [[ "${actual_sha256}" != "${expected_sha256}" ]]; then
+if [[ "${actual_sha256}" != "${expected_sha256}" ]]
+then
   echo "Checksum mismatch for ${archive}." >&2
   exit 1
 fi
