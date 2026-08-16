@@ -1,6 +1,6 @@
 cask "tetherm" do
-  version "0.1.0"
-  sha256 "14dd756c734ce875c02cdc8a052cefaf4d111866c9566fa90bfb53268f0076e4"
+  version "0.1.1"
+  sha256 "6b25af9256068f7c366b2d6898047f456ef919c2f665736b43567ae79ab95a56"
 
   url "https://github.com/cluion/tetherm/releases/download/v#{version}/tetherm-#{version}-macos-universal.zip"
   name "Tetherm"
