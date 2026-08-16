@@ -1,0 +1,51 @@
+name: Update Tetherm Cask
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/update-tetherm.yml
+      - scripts/update-tetherm-cask.sh
+      - Templates/tetherm.rb.in
+  schedule:
+    - cron: "37 4 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-tetherm-cask
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out tap
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Generate Cask from latest release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: scripts/update-tetherm-cask.sh
+
+      - name: Commit Cask update
+        run: |
+          if [[ ! -f Casks/tetherm.rb ]]; then
+            echo "No published Tetherm release yet."
+            exit 0
+          fi
+
+          if git diff --quiet -- Casks/tetherm.rb && \
+             git ls-files --error-unmatch Casks/tetherm.rb >/dev/null 2>&1; then
+            echo "Tetherm Cask is already current."
+            exit 0
+          fi
+
+          version=$(awk -F'"' '/^  version "/ { print $2; exit }' Casks/tetherm.rb)
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add Casks/tetherm.rb
+          git commit -m "tetherm ${version}"
+          git push
