@@ -11,16 +11,16 @@ cask "tetherm" do
 
   app "Tetherm.app"
 
-  caveats <<~EOS
-    Tetherm is currently ad-hoc signed and not Apple-notarized.
-    On first launch, macOS may block it. Open System Settings > Privacy & Security
-    and choose Open Anyway to approve this exact build.
-  EOS
-
   zap trash: [
     "~/Library/Application Support/com.cluion.tetherm",
     "~/Library/Caches/com.cluion.tetherm",
     "~/Library/Preferences/com.cluion.tetherm.plist",
     "~/Library/Saved Application State/com.cluion.tetherm.savedState",
   ]
+
+  caveats <<~EOS
+    Tetherm is currently ad-hoc signed and not Apple-notarized.
+    On first launch, macOS may block it. Open System Settings > Privacy & Security
+    and choose Open Anyway to approve this exact build.
+  EOS
 end
